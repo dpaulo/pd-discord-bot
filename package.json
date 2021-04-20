@@ -4,8 +4,9 @@
   "description": "Discord Bot made for the 2nd year of MMU Professional Development unit project.",
   "main": "main.js",
   "scripts": {
-    "start": "node src/main.js",
-    "startDev": "nodemon src/main.js"
+    "start": "node src/create-db.js && node src/main.js",
+    "start-dev": "nodemon src/main.js",
+    "build-db": "node src/create-db.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

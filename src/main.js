@@ -1,7 +1,11 @@
 require("dotenv").config();
 const Discord = require("discord.js");
 const config = require("../config.json");
-const CurrentCsgoPrice = require("./components/csgo-skin-price/CurrentPrice");
+const CsgoSteamMarketPrice = require("./components/csgo-skin-price/MarketPrice");
+const CsgoSteamMarketTrend = require("./components/csgo-skin-price/MarketTrend");
+const CsgoSteamMarketInventory = require("./components/csgo-skin-price/InventoryValue");
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database(config.dbName);
 
 // Making the actual client of the bot
 const client = new Discord.Client();
@@ -12,6 +16,8 @@ const BOT_PREFIX = config.botPrefix;
 // The commands available in the bot, located inside config.json
 const COMMAND_CHECK = config.commandCheck;
 const COMMAND_CSGO_PRICE = config.commandCsgoPrice;
+const COMMAND_CSGO_TREND = config.commandCsgoTrend;
+const COMMAND_CSGO_INVENTORY = config.commandCsgoInventory;
 
 // Once the bot is ready, log a message to the console saying that the bot has successfully started and connectedstart
 client.once("ready", () => {
@@ -37,8 +43,19 @@ client.on("message", async (msg) => {
     msg.react("❤️");
   }
 
+  // The command used to check the current price of a particular CS:GO item and save/update the results into the database for the Trend lookup later on
   if (command === COMMAND_CSGO_PRICE) {
-    CurrentCsgoPrice(msg, args);
+    CsgoSteamMarketPrice(BOT_PREFIX, msg, args, db);
+  }
+
+  // The command used to check the price change from the last time the item has been checked. This command only gets the results from database, doesn't save them
+  if (command === COMMAND_CSGO_TREND) {
+    CsgoSteamMarketTrend(BOT_PREFIX, msg, args, db);
+  }
+
+  // The command used to calculate Steam User's CS:GO inventory value by providing a CustomURL or their Steam ID as an argument
+  if (command === COMMAND_CSGO_INVENTORY) {
+    CsgoSteamMarketInventory(BOT_PREFIX, msg, args);
   }
 });
 
