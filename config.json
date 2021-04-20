@@ -1,5 +1,8 @@
 {
-  "botPrefix": "-",
+  "dbName": "csgoItemPrice.db",
+  "botPrefix": "$",
   "commandCheck": "check",
-  "commandCsgoPrice": "csgoprice"
+  "commandCsgoPrice": "csgoprice",
+  "commandCsgoTrend": "csgotrend",
+  "commandCsgoInventory": "csgoinv"
 }
