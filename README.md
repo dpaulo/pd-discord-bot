@@ -11,11 +11,13 @@ npm run start
 
 ## Structure
 
-`src` folder is the main folder that contains all the components including the `main.js`. The `src` directory includes `components` that contains the 4 different components of the Discord Bot.
+`src` is the main directory that contains all the components including the `main.js` and `create-db.js` (used to create the SQLite database file if it doesn't exist).
 
-You need to create `.env` file locally that includes `BOT_TOKEN={token}`, as it is in the `.gitignore` list due to security reasons.
+The `src` directory includes `components` that contains the 4 different components of the Discord Bot.
 
-`config.json` contains the prefix of the Discord Bot and all the commands that are used.
+You need to create `.env` file locally that includes `BOT_TOKEN={token}` and `STEAM_WEB_API_KEY={key}`, as it is in the `.gitignore` list due to security reasons.
+
+`config.json` contains the databse name, prefix of the Discord Bot and all the commands that are used.
 
 ## Authors:
 
