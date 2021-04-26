@@ -61,7 +61,6 @@ client.on("message", async (msg) => {
   }
 
   if (command === COMMAND_COIN_PRICE) {
-    console.log('works')
     CoinPrices(msg);
   }
 });
