@@ -1,9 +1,10 @@
 require("dotenv").config();
 const Discord = require("discord.js");
 const config = require("../config.json");
-const CsgoSteamMarketPrice = require("./components/csgo-skin-price/MarketPrice");
-const CsgoSteamMarketTrend = require("./components/csgo-skin-price/MarketTrend");
-const CsgoSteamMarketInventory = require("./components/csgo-skin-price/InventoryValue");
+const CsgoSteamMarketPrice = require("./components/csgo-item-price/MarketPrice");
+const CsgoSteamMarketTrend = require("./components/csgo-item-price/MarketTrend");
+const CsgoSteamMarketInventory = require("./components/csgo-item-price/InventoryValue");
+const CoinPrices = require("./components/crypto/pricecheck")
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(config.dbName);
 
@@ -18,6 +19,7 @@ const COMMAND_CHECK = config.commandCheck;
 const COMMAND_CSGO_PRICE = config.commandCsgoPrice;
 const COMMAND_CSGO_TREND = config.commandCsgoTrend;
 const COMMAND_CSGO_INVENTORY = config.commandCsgoInventory;
+const COMMAND_COIN_PRICE = config.commandCoinPrice;
 
 // Once the bot is ready, log a message to the console saying that the bot has successfully started and connectedstart
 client.once("ready", () => {
@@ -56,6 +58,10 @@ client.on("message", async (msg) => {
   // The command used to calculate Steam User's CS:GO inventory value by providing a CustomURL or their Steam ID as an argument
   if (command === COMMAND_CSGO_INVENTORY) {
     CsgoSteamMarketInventory(BOT_PREFIX, msg, args);
+  }
+
+  if (command === COMMAND_COIN_PRICE) {
+    CoinPrices(msg);
   }
 });
 

@@ -4,5 +4,6 @@
   "commandCheck": "check",
   "commandCsgoPrice": "csgoprice",
   "commandCsgoTrend": "csgotrend",
-  "commandCsgoInventory": "csgoinv"
+  "commandCsgoInventory": "csgoinv",
+  "commandCoinPrice": "coinprice"
 }
