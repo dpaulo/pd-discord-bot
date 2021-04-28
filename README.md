@@ -8,7 +8,9 @@ npm install
 npm run start-dev
 # to start everything in development environment using nodemon, so the bot restarts everytime you save any changes
 npm run start
-# regular node startup
+# regular node startup (creates the database file if not present automatically)
+npm run build-db
+# build the database file manually (on initial startup if watned to use start-dev straight away)
 ```
 
 ## Structure
