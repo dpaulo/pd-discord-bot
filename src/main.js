@@ -4,11 +4,12 @@ const config = require("../config.json");
 const CsgoSteamMarketPrice = require("./components/csgo-item-price/MarketPrice");
 const CsgoSteamMarketTrend = require("./components/csgo-item-price/MarketTrend");
 const CsgoSteamMarketInventory = require("./components/csgo-item-price/InventoryValue");
-const CoinPrices = require("./components/crypto/pricecheck")
-const CoinTrend = require("./components/crypto/pricetrend")
-const CoinHistory = require("./components/crypto/pricehistory")
-const CoinPrices = require("./components/crypto/pricecheck")
+const CoinPrices = require("./components/crypto/pricecheck");
+const CoinTrend = require("./components/crypto/pricetrend");
+const CoinHistory = require("./components/crypto/pricehistory");
+const CoinPrices = require("./components/crypto/pricecheck");
 const Compare = require("./components/exchange-rates/compare");
+const Convert = require("./components/exchange-rates/convert");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(config.dbName);
 
