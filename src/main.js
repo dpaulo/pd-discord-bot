@@ -7,7 +7,6 @@ const CsgoSteamMarketInventory = require("./components/csgo-item-price/Inventory
 const CoinPrices = require("./components/crypto/pricecheck");
 const CoinTrend = require("./components/crypto/pricetrend");
 const CoinHistory = require("./components/crypto/pricehistory");
-const CoinPrices = require("./components/crypto/pricecheck");
 const Compare = require("./components/exchange-rates/compare");
 const Convert = require("./components/exchange-rates/convert");
 const sqlite3 = require("sqlite3").verbose();
@@ -78,12 +77,13 @@ client.on("message", async (msg) => {
   if (command === COMMAND_COIN_HISTORY) {
     CoinHistory(msg);
   }
-  
+
   if (command === COMMAND_COMPARE) {
     Compare(msg);
   }
   if (command === COMMAND_CONVERT) {
     Convert(msg);
+  }
 });
 
 // Log in and authorize our bot with the Access Token from the .env variable
