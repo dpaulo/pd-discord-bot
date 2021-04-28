@@ -5,6 +5,8 @@ const CsgoSteamMarketPrice = require("./components/csgo-item-price/MarketPrice")
 const CsgoSteamMarketTrend = require("./components/csgo-item-price/MarketTrend");
 const CsgoSteamMarketInventory = require("./components/csgo-item-price/InventoryValue");
 const CoinPrices = require("./components/crypto/pricecheck")
+const CoinTrend = require("./components/crypto/pricetrend")
+const CoinHistory = require("./components/crypto/pricehistory")
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(config.dbName);
 
@@ -20,6 +22,8 @@ const COMMAND_CSGO_PRICE = config.commandCsgoPrice;
 const COMMAND_CSGO_TREND = config.commandCsgoTrend;
 const COMMAND_CSGO_INVENTORY = config.commandCsgoInventory;
 const COMMAND_COIN_PRICE = config.commandCoinPrice;
+const COMMAND_COIN_TREND = config.commandCoinTrend;
+const COMMAND_COIN_HISTORY = config.commandCoinHistory;
 
 // Once the bot is ready, log a message to the console saying that the bot has successfully started and connectedstart
 client.once("ready", () => {
@@ -62,6 +66,12 @@ client.on("message", async (msg) => {
 
   if (command === COMMAND_COIN_PRICE) {
     CoinPrices(msg);
+  }
+  if (command === COMMAND_COIN_TREND) {
+    CoinTrend(msg);
+  }
+  if (command === COMMAND_COIN_HISTORY) {
+    CoinHistory(msg);
   }
 });
 
