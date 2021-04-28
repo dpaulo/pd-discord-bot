@@ -6,6 +6,8 @@
   "commandCsgoTrend": "csgotrend",
   "commandCsgoInventory": "csgoinv",
   "commandCoinPrice": "coinprice",
+  "commandCoinTrend": "cointrend",
+  "commandCoinHistory": "coinhistory"
   "commandCompare": "compare",
   "commandConvert": "convert"
 }

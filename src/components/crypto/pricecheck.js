@@ -22,7 +22,7 @@ module.exports = async (message) => {
                 `The current price of 1 ${coin} = ${data[coin][vsCurrency]} ${vsCurrency}`
               );
             } catch (err) {
-              return message.channel.send('Please check your inputs. For example: !price bitcoin usd');
+              return message.channel.send('Please check your inputs. For example: $price bitcoin usd');
             }
           }
 }
