@@ -3,7 +3,9 @@
 ## Getting Started
 
 ```bash
-npm run startDev
+npm install
+# to install all the necessary node modules initially
+npm run start-dev
 # to start everything in development environment using nodemon, so the bot restarts everytime you save any changes
 npm run start
 # regular node startup
