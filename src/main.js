@@ -7,6 +7,8 @@ const CsgoSteamMarketInventory = require("./components/csgo-item-price/Inventory
 const CoinPrices = require("./components/crypto/pricecheck")
 const CoinTrend = require("./components/crypto/pricetrend")
 const CoinHistory = require("./components/crypto/pricehistory")
+const CoinPrices = require("./components/crypto/pricecheck")
+const Compare = require("./components/exchange-rates/compare");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(config.dbName);
 
@@ -24,6 +26,8 @@ const COMMAND_CSGO_INVENTORY = config.commandCsgoInventory;
 const COMMAND_COIN_PRICE = config.commandCoinPrice;
 const COMMAND_COIN_TREND = config.commandCoinTrend;
 const COMMAND_COIN_HISTORY = config.commandCoinHistory;
+const COMMAND_COMPARE = config.commandCompare;
+const COMMAND_CONVERT = config.commandConvert;
 
 // Once the bot is ready, log a message to the console saying that the bot has successfully started and connectedstart
 client.once("ready", () => {
@@ -73,6 +77,12 @@ client.on("message", async (msg) => {
   if (command === COMMAND_COIN_HISTORY) {
     CoinHistory(msg);
   }
+  
+  if (command === COMMAND_COMPARE) {
+    Compare(msg);
+  }
+  if (command === COMMAND_CONVERT) {
+    Convert(msg);
 });
 
 // Log in and authorize our bot with the Access Token from the .env variable

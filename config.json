@@ -8,4 +8,6 @@
   "commandCoinPrice": "coinprice",
   "commandCoinTrend": "cointrend",
   "commandCoinHistory": "coinhistory"
+  "commandCompare": "compare",
+  "commandConvert": "convert"
 }
