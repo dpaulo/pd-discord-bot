@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = async (BOT_PREFIX, msg, args, db) => {
   // Check if there are any arguments provided. If not, return a message asking to use commands by following hte correct template
   if (args.length <= 0) {
-    return msg.channel.send("Please follow the template `" + BOT_PREFIX + "csgoprice ?{knife/gloves} ?{stattrak/souvenir} ?{np/fn/mv/ft/ww/bs} name`");
+    return msg.channel.send("Please follow the template `" + BOT_PREFIX + "csgoprice ?{knife/gloves} ?{stattrak/souvenir} ?{np/fn/mv/ft/ww/bs} {name}`");
   }
 
   // Construct a URL to search for the particular item in the Steam Community Market

@@ -2,6 +2,7 @@
   "dbName": "csgoItemPrice.db",
   "botPrefix": "$",
   "commandCheck": "check",
+  "commandHelp": "help",
   "commandCsgoPrice": "csgoprice",
   "commandCsgoTrend": "csgotrend",
   "commandCsgoInventory": "csgoinv",
