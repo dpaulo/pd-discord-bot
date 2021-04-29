@@ -9,5 +9,7 @@
   "commandCoinTrend": "cointrend",
   "commandCoinHistory": "coinhistory",
   "commandCompare": "compare",
-  "commandConvert": "convert"
+  "commandConvert": "convert",
+  "commandPlay": "play",
+  "commandLeave": "leave"
 }

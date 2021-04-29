@@ -9,6 +9,8 @@ const CoinTrend = require("./components/crypto/pricetrend");
 const CoinHistory = require("./components/crypto/pricehistory");
 const Compare = require("./components/exchange-rates/compare");
 const Convert = require("./components/exchange-rates/convert");
+const Play = require("./components/music-player/play");
+const Leave = require("./components/music-player/leave");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(config.dbName);
 
@@ -28,6 +30,8 @@ const COMMAND_COIN_TREND = config.commandCoinTrend;
 const COMMAND_COIN_HISTORY = config.commandCoinHistory;
 const COMMAND_COMPARE = config.commandCompare;
 const COMMAND_CONVERT = config.commandConvert;
+const COMMAND_PLAY = config.commandPlay;
+const COMMAND_LEAVE = config.commandLeave;
 
 // Once the bot is ready, log a message to the console saying that the bot has successfully started and connectedstart
 client.once("ready", () => {
@@ -83,6 +87,14 @@ client.on("message", async (msg) => {
   }
   if (command === COMMAND_CONVERT) {
     Convert(msg);
+  }
+
+  if (command === COMMAND_PLAY) {
+    Play(msg, args);
+  }
+
+  if (command === COMMAND_LEAVE) {
+    Leave(msg, args);
   }
 });
 
